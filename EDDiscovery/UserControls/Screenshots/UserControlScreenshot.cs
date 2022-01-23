@@ -56,7 +56,10 @@ namespace EDDiscovery.UserControls
         public override void Closing()
         {
             discoveryform.ScreenShotCaptured -= Discoveryform_ScreenShotCaptured;
-            uctg.OnTravelSelectionChanged -= TGChanged;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= TGChanged;
+            }
         }
 
         private void Discoveryform_ScreenShotCaptured(string file, Size size)

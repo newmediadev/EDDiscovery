@@ -155,7 +155,10 @@ namespace EDDiscovery.UserControls
         {
             DGVSaveColumnLayout(dataGridViewMC);
 
-            uctg.OnTravelSelectionChanged -= CallBackDisplayWithCheck;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= CallBackDisplayWithCheck;
+            }
         }
 
         #endregion

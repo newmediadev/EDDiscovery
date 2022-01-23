@@ -84,7 +84,11 @@ namespace EDDiscovery.UserControls
         public override void Closing()
         {
             DGVSaveColumnLayout(dataGridViewScangrid);
-            uctg.OnTravelSelectionChanged -= Display;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= Display;
+
+            }
             discoveryform.OnNewEntry -= NewEntry;
         }
 

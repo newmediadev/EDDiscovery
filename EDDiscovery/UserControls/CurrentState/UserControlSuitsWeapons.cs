@@ -62,8 +62,10 @@ namespace EDDiscovery.UserControls
             DGVSaveColumnLayout(dataGridViewWeapons, "Weapons");
             PutSetting("Splitter", splitContainerMissions.GetSplitterDistance());
 
-            uctg.OnTravelSelectionChanged -= Display;
-
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= Display;
+            }
         }
 
         #endregion

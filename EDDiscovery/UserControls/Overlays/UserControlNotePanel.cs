@@ -86,7 +86,11 @@ namespace EDDiscovery.UserControls
         {
             discoveryform.OnHistoryChange -= OnHistoryChange;
             discoveryform.OnNoteChanged -= OnNoteChange;
-            uctg.OnTravelSelectionChanged -= OnTravelChange;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= OnTravelChange;
+            }
+
             PutSetting("Config", (int)config);
         }
 

@@ -238,7 +238,10 @@ namespace EDDiscovery.UserControls
         {
             DGVSaveColumnLayout(dataGridViewFactions);
 
-            uctg.OnTravelSelectionChanged -= Discoveryform_OnTravelSelectionChanged;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= Discoveryform_OnTravelSelectionChanged;
+            }
             discoveryform.OnNewEntry -= Discoveryform_OnNewEntry;
             discoveryform.OnHistoryChange -= Discoveryform_OnHistoryChange;
 

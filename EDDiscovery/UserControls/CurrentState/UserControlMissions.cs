@@ -79,7 +79,10 @@ namespace EDDiscovery.UserControls
             DGVSaveColumnLayout(missionListCurrent.dataGridView, "Current");
             DGVSaveColumnLayout(missionListPrevious.dataGridView, "Previous");
 
-            uctg.OnTravelSelectionChanged -= Display;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= Display;
+            }
             discoveryform.OnNewEntry -= Discoveryform_OnNewEntry;
             discoveryform.OnHistoryChange -= Discoveryform_OnHistoryChange;
 

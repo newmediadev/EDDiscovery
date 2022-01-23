@@ -209,7 +209,11 @@ namespace EDDiscovery.UserControls
 
         public override void Closing()
         {
-            uctg.OnTravelSelectionChanged -= TravelSelChanged;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= TravelSelChanged;
+            }
+
             discoveryform.OnNewTarget -= RefreshTargetDisplay;
             discoveryform.OnNoteChanged -= OnNoteChanged;
             discoveryform.OnEDSMSyncComplete -= Discoveryform_OnEDSMSyncComplete;

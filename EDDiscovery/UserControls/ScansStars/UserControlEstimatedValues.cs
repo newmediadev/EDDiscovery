@@ -79,7 +79,10 @@ namespace EDDiscovery.UserControls
         {
             DGVSaveColumnLayout(dataGridViewEstimatedValues);
 
-            uctg.OnTravelSelectionChanged -= Display;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= Display;
+            }
             discoveryform.OnNewEntry -= NewEntry;
         }
 

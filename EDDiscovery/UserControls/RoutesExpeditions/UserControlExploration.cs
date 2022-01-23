@@ -88,7 +88,10 @@ namespace EDDiscovery.UserControls
         public override void Closing()
         {
             DGVSaveColumnLayout(dataGridViewExplore);
-            uctg.OnTravelSelectionChanged -= Display;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= Display;
+            }
             discoveryform.OnNewEntry -= NewEntry;
             if (uctg is IHistoryCursorNewStarList)
                 (uctg as IHistoryCursorNewStarList).OnNewStarList -= OnNewStars;

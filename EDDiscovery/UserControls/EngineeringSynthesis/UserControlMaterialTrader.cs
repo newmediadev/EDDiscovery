@@ -128,7 +128,11 @@ namespace EDDiscovery.UserControls
         {
             DGVSaveColumnLayout(dataGridViewTrades);
             PutSetting(dbSplitter, splitContainer.GetSplitterDistance());
-            uctg.OnTravelSelectionChanged -= TravelSelectionChanged;
+
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= TravelSelectionChanged;
+            }
 
             discoveryform.OnThemeChanged -= Discoveryform_OnThemeChanged;
             discoveryform.OnNewEntry -= Discoveryform_OnNewEntry;

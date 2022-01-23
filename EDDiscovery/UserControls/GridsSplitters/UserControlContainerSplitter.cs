@@ -188,14 +188,17 @@ namespace EDDiscovery.UserControls
 
         private void RunActionOnSplitterTree(Action<SplitterPanel, Control, UserControlCommonBase> action)
         {
-            (panelPlayfield.Controls[0] as SplitContainer).RunActionOnSplitterTree((p, c) =>        // runs on each split panel node exactly..
+            if (panelPlayfield.Controls.Count > 0)
             {
-                UserControlCommonBase uccb = ((c is ExtendedControls.TabStrip) ? ((c as ExtendedControls.TabStrip).CurrentControl) : c) as UserControlCommonBase;
-                if (uccb != null)     // tab strip may not have a control set..
+                (panelPlayfield.Controls[0] as SplitContainer).RunActionOnSplitterTree((p, c) =>        // runs on each split panel node exactly..
                 {
-                    action(p, c, uccb);
-                }
-            });
+                    UserControlCommonBase uccb = ((c is ExtendedControls.TabStrip) ? ((c as ExtendedControls.TabStrip).CurrentControl) : c) as UserControlCommonBase;
+                    if (uccb != null)     // tab strip may not have a control set..
+                {
+                        action(p, c, uccb);
+                    }
+                });
+            }
         }
 
         private Control MakeNode(string s)

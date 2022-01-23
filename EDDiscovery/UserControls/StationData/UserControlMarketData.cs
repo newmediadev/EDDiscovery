@@ -80,7 +80,10 @@ namespace EDDiscovery.UserControls
             PutSetting(dbSellOnly, checkBoxSellOnly.Checked);
             PutSetting(dbAutoSwap, checkBoxAutoSwap.Checked);
             discoveryform.OnNewEntry -= OnNewEntry;
-            uctg.OnTravelSelectionChanged -= OnChanged;
+            if (uctg != null)
+            {
+                uctg.OnTravelSelectionChanged -= OnChanged;
+            }
             discoveryform.OnHistoryChange -= Discoveryform_OnHistoryChange;
         }
 
